@@ -1,0 +1,75 @@
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9ecb,#c77dff);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+padding:80px 20px;
+}
+
+h1{
+font-size:3rem;
+}
+
+h2{
+margin-top:10px;
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4f8b;
+font-size:18px;
+cursor:pointer;
+}
+
+.photos{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+.photos img{
+width:250px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+transition:.3s;
+}
+
+.photos img:hover{
+transform:scale(1.05);
+}
+
+.love{
+padding:60px 20px;
+font-size:20px;
+line-height:2;
+}
+
+footer{
+padding:30px;
+font-size:18px;
+}
+
+.hearts::before{
+content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+position:fixed;
+top:-10px;
+left:0;
+width:100%;
+animation:fall 8s linear infinite;
+font-size:28px;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(110vh);}
+}
