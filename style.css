@@ -344,3 +344,265 @@ margin-bottom:50px;
 color:#ff4b8b;
 margin-bottom:15px;
 }
+/* ================================= */
+/* PREMIUM ENVELOPE */
+/* ================================= */
+
+.letter-section{
+padding:120px 20px;
+text-align:center;
+}
+
+.letter-heading{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.tap-text{
+opacity:.8;
+margin-bottom:45px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+50%{
+opacity:.3;
+}
+}
+
+.scene{
+display:flex;
+justify-content:center;
+align-items:center;
+perspective:1200px;
+}
+
+.envelope{
+
+position:relative;
+
+width:340px;
+height:240px;
+
+cursor:pointer;
+
+transform-style:preserve-3d;
+
+transition:1s;
+
+}
+
+/* Envelope body */
+
+.body{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+height:170px;
+
+background:linear-gradient(145deg,#ff77aa,#ff4f8b);
+
+border-radius:0 0 18px 18px;
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.35);
+
+z-index:2;
+
+}
+
+/* Top flap */
+
+.top{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+height:140px;
+
+background:linear-gradient(145deg,#ff8cbc,#ff5a95);
+
+clip-path:polygon(0 0,100% 0,50% 100%);
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:4;
+
+}
+
+/* Heart */
+
+.heart-seal{
+
+position:absolute;
+
+left:50%;
+
+top:82px;
+
+transform:translateX(-50%);
+
+font-size:34px;
+
+z-index:5;
+
+transition:.8s;
+
+filter:drop-shadow(0 0 10px rgba(255,255,255,.6));
+
+}
+
+/* Letter */
+
+.paper{
+
+position:absolute;
+
+left:8%;
+
+bottom:30px;
+
+width:84%;
+
+height:180px;
+
+background:white;
+
+border-radius:15px;
+
+padding:25px;
+
+color:#333;
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.3);
+
+transform:translateY(120px);
+
+transition:1.2s;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.paper h2{
+
+font-family:'Dancing Script',cursive;
+
+color:#ff4f8b;
+
+margin-bottom:18px;
+
+font-size:34px;
+
+}
+
+.paper p{
+
+line-height:1.8;
+
+font-size:17px;
+
+}
+
+/* Sparkles */
+
+.sparkles{
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+background:radial-gradient(
+rgba(255,255,255,.35),
+transparent 70%
+);
+
+filter:blur(40px);
+
+animation:glow 3s infinite;
+
+z-index:-1;
+
+}
+
+@keyframes glow{
+
+50%{
+
+transform:scale(1.2);
+
+opacity:.6;
+
+}
+
+}
+
+/* OPEN */
+
+.envelope.open .top{
+
+transform:rotateX(180deg);
+
+}
+
+.envelope.open .paper{
+
+transform:translateY(-170px);
+
+}
+
+.envelope.open .heart-seal{
+
+transform:translateX(-50%) scale(0);
+
+}
+
+/* Hover */
+
+.envelope:hover{
+
+transform:translateY(-10px);
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.envelope{
+
+width:300px;
+
+height:210px;
+
+}
+
+.paper{
+
+height:170px;
+
+font-size:15px;
+
+}
+
+.paper h2{
+
+font-size:28px;
+
+}
+
+}
