@@ -1,135 +1,127 @@
-/* ======================================
-   STARFIELD ANIMATION
-====================================== */
+/* ==========================================
+   STARRY BACKGROUND
+========================================== */
 
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
 
-let stars = [];
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
-for(let i=0;i<250;i++){
+const stars = [];
+
+for (let i = 0; i < 250; i++) {
 
     stars.push({
 
-        x:Math.random()*canvas.width,
-
-        y:Math.random()*canvas.height,
-
-        radius:Math.random()*2,
-
-        alpha:Math.random(),
-
-        speed:Math.random()*0.02
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        alpha: Math.random(),
+        speed: (Math.random() * 0.02) + 0.005
 
     });
 
 }
 
-function animate(){
+function animateStars() {
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
     stars.forEach(star=>{
 
-        star.alpha+=star.speed;
+        star.alpha += star.speed;
 
-        if(star.alpha>=1 || star.alpha<=0){
+        if(star.alpha >= 1 || star.alpha <= 0){
 
-            star.speed*=-1;
+            star.speed *= -1;
 
         }
 
         ctx.beginPath();
+        ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
 
-        ctx.arc(star.x,star.y,star.radius,0,Math.PI*2);
-
-        ctx.fillStyle=`rgba(255,255,255,${star.alpha})`;
+        ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
 
         ctx.fill();
 
     });
 
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animateStars);
 
 }
 
-animate();
+animateStars();
 
-/* ======================================
-   SHOOTING STAR
-====================================== */
+/* ==========================================
+   PASSWORD
+========================================== */
 
-function shootingStar(){
+const PASSWORD = "1083";
 
-    let x=Math.random()*canvas.width;
+const passwordInput = document.getElementById("password");
 
-    let y=Math.random()*canvas.height/2;
+const unlockBtn = document.getElementById("unlockBtn");
 
-    let length=250;
+const error = document.getElementById("error");
 
-    let progress=0;
+const passwordScreen = document.querySelector(".password-screen");
 
-    function draw(){
+const website = document.querySelector(".website");
 
-        ctx.beginPath();
+unlockBtn.addEventListener("click", unlock);
 
-        ctx.moveTo(x+progress,y+progress);
+passwordInput.addEventListener("keydown", function(e){
 
-        ctx.lineTo(x+progress-length,y+progress-length);
+    if(e.key==="Enter"){
 
-        ctx.strokeStyle="white";
-
-        ctx.lineWidth=2;
-
-        ctx.stroke();
-
-        progress+=12;
-
-        if(progress<450){
-
-            requestAnimationFrame(draw);
-
-        }
+        unlock();
 
     }
 
-    draw();
+});
+
+function unlock(){
+
+    if(passwordInput.value===PASSWORD){
+
+        error.innerHTML="";
+
+        passwordScreen.style.opacity="0";
+
+        passwordScreen.style.pointerEvents="none";
+
+        setTimeout(()=>{
+
+            passwordScreen.style.display="none";
+
+            website.classList.add("show");
+
+            document.body.style.overflowY="auto";
+
+        },1000);
+
+    }
+
+    else{
+
+        passwordInput.classList.add("shake");
+
+        error.innerHTML="Wrong Password ❤️";
+
+        passwordInput.value="";
+
+        setTimeout(()=>{
+
+            passwordInput.classList.remove("shake");
+
+        },500);
+
+    }
 
 }
-
-setInterval(shootingStar,6000);
-
-/* ======================================
-   CONTINUE BUTTON
-====================================== */
-
-document.getElementById("continueBtn").addEventListener("click",()=>{
-
-    document.body.style.transition="1.5s";
-
-    document.body.style.opacity="0";
-
-    setTimeout(()=>{
-
-        alert("Password screen coming in Part 2 ❤️");
-
-        document.body.style.opacity="1";
-
-    },1500);
-
-});
-
-/* ======================================
-   RESPONSIVE
-====================================== */
-
-window.addEventListener("resize",()=>{
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-});
