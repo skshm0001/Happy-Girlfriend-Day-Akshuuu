@@ -246,15 +246,15 @@ transform:translateX(8px);
 /* ============================= */
 
 .website{
-display:flex;
+display:none;
 opacity:0;
-visibility:hidden;
 transition:1s;
-justify-content:center;
-align-items:center;
-height:100vh;
 }
 
+.website.show{
+display:block;
+opacity:1;
+}
 .website.show{
 opacity:1;
 visibility:visible;
