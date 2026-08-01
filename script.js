@@ -126,7 +126,6 @@ function unlock(){
 
 }
 const storyBtn = document.getElementById("storyBtn");
-
 if (storyBtn) {
 
     storyBtn.addEventListener("click", () => {
@@ -136,11 +135,15 @@ if (storyBtn) {
         const story = document.getElementById("story");
         const letter = document.getElementById("letterSection");
 
-        story.classList.remove("hidden");
-        letter.classList.remove("hidden");
+        story.style.display = "none";
 
-        story.style.display = "block";
-letter.style.display = "block";
+        letter.classList.remove("hidden");
+        letter.style.display = "block";
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
 
     });
 
