@@ -446,3 +446,96 @@ transform:scale(1.05);
 }
 
 }
+/* ==========================================
+   ENVELOPE
+========================================== */
+
+.letter-wrapper{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:60px 20px;
+}
+
+.letter-title{
+font-size:42px;
+margin-bottom:10px;
+font-family:'Playfair Display',serif;
+}
+
+.tap-text{
+opacity:.8;
+margin-bottom:30px;
+}
+
+.envelope-card{
+position:relative;
+width:320px;
+height:220px;
+cursor:pointer;
+transition:.4s;
+}
+
+.envelope-card:hover{
+transform:translateY(-8px);
+}
+
+.envelope-back{
+position:absolute;
+bottom:0;
+width:100%;
+height:160px;
+background:#ff5e94;
+border-radius:0 0 18px 18px;
+}
+
+.envelope-flap{
+position:absolute;
+top:0;
+width:100%;
+height:120px;
+background:#ff7cad;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transform-origin:top;
+transition:.8s;
+z-index:2;
+}
+
+.envelope-heart{
+position:absolute;
+left:50%;
+top:78px;
+transform:translateX(-50%);
+font-size:34px;
+z-index:3;
+}
+
+.letter-box{
+
+display:none;
+
+margin-top:50px;
+
+background:white;
+
+color:#333;
+
+padding:35px;
+
+border-radius:20px;
+
+max-width:700px;
+
+line-height:1.8;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+.envelope-open .envelope-flap{
+
+transform:rotateX(180deg);
+
+}
