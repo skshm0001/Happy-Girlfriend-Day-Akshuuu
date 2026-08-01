@@ -245,31 +245,18 @@ transform:translateX(8px);
 /* ============================= */
 
 .website{
-
-display:none;
-
+display:flex;
 opacity:0;
-
+visibility:hidden;
 transition:1s;
-
-height:100vh;
-
 justify-content:center;
-
 align-items:center;
-
-text-align:center;
-
-padding:30px;
-
+height:100vh;
 }
 
 .website.show{
-
-display:flex;
-
 opacity:1;
-
+visibility:visible;
 }
 
 .hero h1{
