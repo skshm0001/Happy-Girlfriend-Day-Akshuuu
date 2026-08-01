@@ -127,8 +127,6 @@ function unlock(){
 }
 const storyBtn = document.getElementById("storyBtn");
 
-const storyBtn = document.getElementById("storyBtn");
-
 if (storyBtn) {
 
     storyBtn.addEventListener("click", () => {
