@@ -1,220 +1,135 @@
-// ----------------------
-// Loading Screen
-// ----------------------
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-    }, 2800);
-});
+/* ======================================
+   STARFIELD ANIMATION
+====================================== */
 
-// ----------------------
-// Smooth Scroll
-// ----------------------
-document.getElementById("enterBtn").addEventListener("click", () => {
-    document.querySelector(".intro").scrollIntoView({
-        behavior: "smooth"
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+for(let i=0;i<250;i++){
+
+    stars.push({
+
+        x:Math.random()*canvas.width,
+
+        y:Math.random()*canvas.height,
+
+        radius:Math.random()*2,
+
+        alpha:Math.random(),
+
+        speed:Math.random()*0.02
+
     });
-});
-
-// ----------------------
-// Background Music
-// ----------------------
-const music = document.getElementById("music");
-let playing = false;
-
-function toggleMusic() {
-
-    if (playing) {
-        music.pause();
-        playing = false;
-    } else {
-        music.play();
-        playing = true;
-    }
 
 }
 
-// ----------------------
-// Fade In Animation
-// ----------------------
+function animate(){
 
-const observer = new IntersectionObserver((entries) => {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    entries.forEach(entry => {
+    stars.forEach(star=>{
 
-        if (entry.isIntersecting) {
+        star.alpha+=star.speed;
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0px)";
+        if(star.alpha>=1 || star.alpha<=0){
+
+            star.speed*=-1;
 
         }
 
+        ctx.beginPath();
+
+        ctx.arc(star.x,star.y,star.radius,0,Math.PI*2);
+
+        ctx.fillStyle=`rgba(255,255,255,${star.alpha})`;
+
+        ctx.fill();
+
     });
 
-}, {
-    threshold: 0.2
-});
+    requestAnimationFrame(animate);
 
-document.querySelectorAll(".card").forEach(card => {
+}
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(50px)";
-    card.style.transition = "1s";
+animate();
 
-    observer.observe(card);
+/* ======================================
+   SHOOTING STAR
+====================================== */
 
-});
+function shootingStar(){
 
-// ----------------------
-// Heart Effect
-// ----------------------
+    let x=Math.random()*canvas.width;
 
-document.addEventListener("click", function(e) {
+    let y=Math.random()*canvas.height/2;
 
-    for (let i = 0; i < 10; i++) {
+    let length=250;
 
-        let heart = document.createElement("div");
+    let progress=0;
 
-        heart.innerHTML = "❤️";
+    function draw(){
 
-        heart.style.position = "fixed";
-        heart.style.left = e.clientX + "px";
-        heart.style.top = e.clientY + "px";
+        ctx.beginPath();
 
-        heart.style.pointerEvents = "none";
-        heart.style.fontSize = (15 + Math.random() * 15) + "px";
+        ctx.moveTo(x+progress,y+progress);
 
-        heart.style.transition = "1.5s linear";
+        ctx.lineTo(x+progress-length,y+progress-length);
 
-        document.body.appendChild(heart);
+        ctx.strokeStyle="white";
 
-        setTimeout(() => {
+        ctx.lineWidth=2;
 
-            heart.style.transform =
-                `translate(${(Math.random()-0.5)*200}px,-${150+Math.random()*100}px) rotate(${Math.random()*360}deg)`;
+        ctx.stroke();
 
-            heart.style.opacity = "0";
+        progress+=12;
 
-        }, 20);
+        if(progress<450){
 
-        setTimeout(() => {
-            heart.remove();
-        }, 1600);
+            requestAnimationFrame(draw);
+
+        }
 
     }
 
+    draw();
+
+}
+
+setInterval(shootingStar,6000);
+
+/* ======================================
+   CONTINUE BUTTON
+====================================== */
+
+document.getElementById("continueBtn").addEventListener("click",()=>{
+
+    document.body.style.transition="1.5s";
+
+    document.body.style.opacity="0";
+
+    setTimeout(()=>{
+
+        alert("Password screen coming in Part 2 ❤️");
+
+        document.body.style.opacity="1";
+
+    },1500);
+
 });
 
-// ----------------------
-// Typing Cursor
-// ----------------------
+/* ======================================
+   RESPONSIVE
+====================================== */
 
-const typing = document.querySelector(".typing");
+window.addEventListener("resize",()=>{
 
-setInterval(() => {
+canvas.width=window.innerWidth;
 
-    typing.style.borderRight = "2px solid white";
-
-    setTimeout(() => {
-        typing.style.borderRight = "none";
-    }, 500);
-
-}, 1000);
-function openLetter(){
-
-document.querySelector(".envelope").classList.toggle("open");
-
-}
-/* ===========================
-   PREMIUM LOVE ENVELOPE
-=========================== */
-
-const envelope = document.getElementById("envelope");
-const letter = document.getElementById("letterText");
-
-const message = `Happy Girlfriend's Day, my beautiful Akshuuu ❤️
-
-Every day with you feels like a dream I never want to wake up from.
-
-You have filled my life with happiness, love and countless beautiful memories.
-
-Thank you for believing in me, standing beside me, making me smile, and loving me even on my worst days.
-
-You are my peace.
-You are my comfort.
-You are my biggest blessing.
-
-If life gave me another chance,
-I'd still choose you.
-
-Again...
-and again...
-and again.
-
-Forever Yours,
-❤️`;
-
-let opened = false;
-let typing = false;
-
-function typeLetter(){
-
-letter.innerHTML="";
-
-let i=0;
-
-typing=true;
-
-const interval=setInterval(()=>{
-
-letter.innerHTML+=message.charAt(i);
-
-i++;
-
-if(i>=message.length){
-
-clearInterval(interval);
-
-typing=false;
-
-}
-
-},35);
-
-}
-
-envelope.addEventListener("click",()=>{
-
-if(opened || typing) return;
-
-opened=true;
-
-envelope.classList.add("open");
-
-setTimeout(()=>{
-
-typeLetter();
-
-},1000);
+canvas.height=window.innerHeight;
 
 });
-/* =======================
-Gallery Lightbox
-======================= */
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-function openImage(img){
-
-lightbox.style.display="flex";
-
-lightboxImg.src=img.src;
-
-}
-
-function closeImage(){
-
-lightbox.style.display="none";
-
-}
