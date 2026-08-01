@@ -125,3 +125,16 @@ function unlock(){
     }
 
 }
+const storyBtn = document.getElementById("storyBtn");
+
+if(storyBtn){
+
+storyBtn.addEventListener("click",()=>{
+
+document.querySelector(".cinematic-intro").style.display="none";
+
+document.getElementById("story").style.display="block";
+
+});
+
+}
