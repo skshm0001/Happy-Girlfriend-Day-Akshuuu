@@ -138,3 +138,50 @@ document.getElementById("story").style.display="block";
 });
 
 }
+const envelope = document.getElementById("envelope");
+
+const paper = document.getElementById("letterPaper");
+
+const typingText = document.getElementById("typingText");
+
+const letter = `There are some people who change our lives without even realizing it.
+
+Thank you for every smile, every conversation, every memory, and every moment we've shared.
+
+Meeting you was one of the most beautiful things that ever happened to me.
+
+If I had to start my life all over again...
+
+I'd still choose you.
+
+Happy Girlfriend's Day ❤️`;
+
+let i = 0;
+
+if(envelope){
+
+envelope.addEventListener("click",()=>{
+
+document.querySelector(".envelope-top").style.transform="rotateX(180deg)";
+
+paper.style.display="block";
+
+typeLetter();
+
+});
+
+}
+
+function typeLetter(){
+
+if(i < letter.length){
+
+typingText.innerHTML += letter.charAt(i);
+
+i++;
+
+setTimeout(typeLetter,35);
+
+}
+
+}
