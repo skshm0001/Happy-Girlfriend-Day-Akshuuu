@@ -622,9 +622,9 @@ transform:rotateX(180deg);
 
 .letter-box{
 
-display:none;
+position:relative;
 
-margin-top:50px;
+margin-top:-140px;
 
 background:#fffdf7;
 
@@ -639,5 +639,25 @@ border-radius:15px;
 line-height:2;
 
 box-shadow:0 20px 40px rgba(0,0,0,.3);
+
+opacity:0;
+
+transform:translateY(120px);
+
+transition:1.2s ease;
+
+pointer-events:none;
+
+}
+
+.letter-box.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+pointer-events:auto;
+
+margin-top:40px;
 
 }
