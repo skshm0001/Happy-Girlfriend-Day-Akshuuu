@@ -120,3 +120,8 @@ setInterval(() => {
     }, 500);
 
 }, 1000);
+function openLetter(){
+
+document.querySelector(".envelope").classList.toggle("open");
+
+}
