@@ -198,3 +198,23 @@ typeLetter();
 },1000);
 
 });
+/* =======================
+Gallery Lightbox
+======================= */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+function openImage(img){
+
+lightbox.style.display="flex";
+
+lightboxImg.src=img.src;
+
+}
+
+function closeImage(){
+
+lightbox.style.display="none";
+
+}
