@@ -1,203 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Akshuuu ❤️</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Happy Girlfriend's Day ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div id="loader">
-    <h1>Loading your surprise...</h1>
-</div>
+<canvas id="stars"></canvas>
 
-<div class="hearts"></div>
+<div class="overlay"></div>
 
-<section class="hero">
-
-<div class="glass">
+<section class="intro">
 
 <h2>Happy Girlfriend's Day</h2>
 
-<h1>Akshuuu ❤️</h1>
+<h1>❤️</h1>
 
-<p class="typing">
-Every heartbeat of mine whispers your name.
-Today isn't just another day...
-it's a celebration of you.
+<p>
+
+For someone who made
+ordinary days feel extraordinary.
+
 </p>
 
-<button id="enterBtn">
-Begin Our Story →
+<button id="continueBtn">
+
+Continue
+
 </button>
 
-</div>
-
 </section>
-<section class="letter-section">
-
-<h2 class="letter-heading">
-A Letter For My Favorite Person ❤️
-</h2>
-
-<p class="tap-text">
-Tap the envelope...
-</p>
-
-<div class="scene">
-
-<div class="sparkles"></div>
-
-<div class="envelope" id="envelope">
-
-<div class="top"></div>
-
-<div class="body"></div>
-
-<div class="heart-seal">❤️</div>
-
-<div class="paper">
-
-<h2>To My Dearest Akshuuu ❤️</h2>
-
-<p id="letterText"></p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<section class="intro">
-
-<h2>You are...</h2>
-
-<div class="cards">
-
-<div class="card">
-❤️
-<h3>My Peace</h3>
-<p>Wherever life takes me,
-my heart always finds its way back to you.</p>
-</div>
-
-<div class="card">
-🌸
-<h3>My Happiness</h3>
-<p>Your smile makes every bad day disappear.</p>
-</div>
-
-<div class="card">
-✨
-<h3>My Forever</h3>
-<p>If I had to choose again,
-I'd still choose you.</p>
-</div>
-
-</div>
-
-</section>
-<section class="timeline">
-
-    <h2>Our Story ❤️</h2>
-
-    <div class="timeline-container">
-
-        <div class="timeline-item left">
-            <div class="content">
-                <span class="date">16 May</span>
-                <h3>Where It All Began</h3>
-                <p>
-                    Every beautiful story has a beginning.
-                    Ours started on a day that quietly changed my life forever.
-                </p>
-            </div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="content">
-                <span class="date">Countless Memories</span>
-                <h3>Every Moment Matters</h3>
-                <p>
-                    From the smallest conversations to the happiest moments,
-                    every memory with you became a reason to smile.
-                </p>
-            </div>
-        </div>
-
-        <div class="timeline-item left">
-            <div class="content">
-                <span class="date">Today</span>
-                <h3>Still Choosing You</h3>
-                <p>
-                    If life asked me again,
-                    my answer would still be you.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-    <section class="gallery">
-
-<h2>Our Beautiful Memories ❤️</h2>
-
-<p class="gallery-sub">
-Some moments deserve to be remembered forever.
-</p>
-
-<div class="gallery-grid">
-
-<div class="photo-card">
-<img src="images/photo1.jpg" alt="" onclick="openImage(this)">
-<span>One smile. A thousand memories.</span>
-</div>
-
-<div class="photo-card">
-<img src="images/photo2.jpg" alt="" onclick="openImage(this)">
-<span>The most beautiful person I know.</span>
-</div>
-
-<div class="photo-card">
-<img src="images/photo3.jpg" alt="" onclick="openImage(this)">
-<span>Every picture has a story.</span>
-</div>
-
-<div class="photo-card">
-<img src="images/photo4.jpg" alt="" onclick="openImage(this)">
-<span>Forever my favourite view.</span>
-</div>
-
-<div class="photo-card">
-<img src="images/photo5.jpg" alt="" onclick="openImage(this)">
-<span>Us. ❤️</span>
-</div>
-
-</div>
-
-</section>
-
-<div id="lightbox" onclick="closeImage()">
-
-<img id="lightbox-img">
-
-    </div>
-<div class="musicBtn" onclick="toggleMusic()">
-🎵
-</div>
-
-<audio id="music" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
