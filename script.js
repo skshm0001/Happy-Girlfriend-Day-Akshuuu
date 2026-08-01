@@ -148,18 +148,3 @@ if (storyBtn) {
     });
 
 }
-const envelope = document.getElementById("envelope");
-
-function typeLetter(){
-
-if(i < letter.length){
-
-typingText.innerHTML += letter.charAt(i);
-
-i++;
-
-setTimeout(typeLetter,35);
-
-}
-
-}
