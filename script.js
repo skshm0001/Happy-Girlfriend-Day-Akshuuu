@@ -125,3 +125,76 @@ function openLetter(){
 document.querySelector(".envelope").classList.toggle("open");
 
 }
+/* ===========================
+   PREMIUM LOVE ENVELOPE
+=========================== */
+
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letterText");
+
+const message = `Happy Girlfriend's Day, my beautiful Akshuuu ❤️
+
+Every day with you feels like a dream I never want to wake up from.
+
+You have filled my life with happiness, love and countless beautiful memories.
+
+Thank you for believing in me, standing beside me, making me smile, and loving me even on my worst days.
+
+You are my peace.
+You are my comfort.
+You are my biggest blessing.
+
+If life gave me another chance,
+I'd still choose you.
+
+Again...
+and again...
+and again.
+
+Forever Yours,
+❤️`;
+
+let opened = false;
+let typing = false;
+
+function typeLetter(){
+
+letter.innerHTML="";
+
+let i=0;
+
+typing=true;
+
+const interval=setInterval(()=>{
+
+letter.innerHTML+=message.charAt(i);
+
+i++;
+
+if(i>=message.length){
+
+clearInterval(interval);
+
+typing=false;
+
+}
+
+},35);
+
+}
+
+envelope.addEventListener("click",()=>{
+
+if(opened || typing) return;
+
+opened=true;
+
+envelope.classList.add("open");
+
+setTimeout(()=>{
+
+typeLetter();
+
+},1000);
+
+});
