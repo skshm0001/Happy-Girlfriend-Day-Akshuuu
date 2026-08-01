@@ -148,3 +148,70 @@ if (storyBtn) {
     });
 
 }
+/* ===========================
+   ENVELOPE
+=========================== */
+
+const envelope = document.getElementById("envelope");
+const letterBox = document.getElementById("letter");
+const letterText = document.getElementById("letterText");
+
+const message = `Happy Girlfriend's Day ❤️
+
+Some people come into our lives quietly...
+
+and somehow become the most beautiful part of it.
+
+Thank you for every smile,
+every laugh,
+every memory,
+and every moment.
+
+You made ordinary days feel extraordinary.
+
+If I had to choose again...
+
+I'd still choose you.
+
+Every single time.
+
+❤️`;
+
+let current = 0;
+let isOpened = false;
+
+function typeMessage(){
+
+    if(current < message.length){
+
+        letterText.innerHTML += message.charAt(current);
+
+        current++;
+
+        setTimeout(typeMessage,35);
+
+    }
+
+}
+
+if(envelope){
+
+    envelope.addEventListener("click",()=>{
+
+        if(isOpened) return;
+
+        isOpened = true;
+
+        envelope.classList.add("envelope-open");
+
+        setTimeout(()=>{
+
+            letterBox.style.display="block";
+
+            typeMessage();
+
+        },700);
+
+    });
+
+}
