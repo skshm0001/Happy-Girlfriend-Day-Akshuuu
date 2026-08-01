@@ -127,15 +127,24 @@ function unlock(){
 }
 const storyBtn = document.getElementById("storyBtn");
 
-if(storyBtn){
+const storyBtn = document.getElementById("storyBtn");
 
-storyBtn.addEventListener("click",()=>{
+if (storyBtn) {
 
-document.querySelector(".cinematic-intro").style.display="none";
+    storyBtn.addEventListener("click", () => {
 
-document.getElementById("story").style.display="block";
+        document.querySelector(".cinematic-intro").style.display = "none";
 
-});
+        const story = document.getElementById("story");
+        const letter = document.getElementById("letterSection");
+
+        story.classList.remove("hidden");
+        letter.classList.remove("hidden");
+
+        story.style.display = "block";
+        letter.style.display = "flex";
+
+    });
 
 }
 const envelope = document.getElementById("envelope");
