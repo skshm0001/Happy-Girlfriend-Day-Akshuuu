@@ -15,7 +15,8 @@ scroll-behavior:smooth;
 body{
 font-family:'Poppins',sans-serif;
 background:#030712;
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 color:white;
 }
 
