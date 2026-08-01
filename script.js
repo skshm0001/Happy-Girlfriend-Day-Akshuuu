@@ -206,9 +206,20 @@ if(envelope){
 
         setTimeout(()=>{
 
-            letterBox.style.display="block";
+            letterBox.style.display = "block";
 
-            typeMessage();
+setTimeout(() => {
+
+    letterBox.classList.add("show");
+
+    letterBox.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    typeMessage();
+
+}, 200);
 
         },700);
 
