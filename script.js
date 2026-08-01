@@ -140,7 +140,7 @@ if (storyBtn) {
         letter.classList.remove("hidden");
 
         story.style.display = "block";
-        letter.style.display = "flex";
+letter.style.display = "block";
 
     });
 
