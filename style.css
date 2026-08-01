@@ -349,7 +349,9 @@ position:relative;
 width:320px;
 height:220px;
 cursor:pointer;
+overflow:hidden;
 transition:.8s;
+margin:auto;
 }
 
 .envelope-front{
