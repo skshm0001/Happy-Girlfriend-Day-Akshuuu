@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Happy Girlfriend's Day ❤️</title>
+<title>For Someone Special ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -22,26 +23,52 @@
 
 <div class="overlay"></div>
 
-<section class="intro">
+<!-- PASSWORD SCREEN -->
 
-<h2>Happy Girlfriend's Day</h2>
+<div class="password-screen">
+
+<div class="glass">
 
 <h1>❤️</h1>
 
+<h2>A Little Surprise Awaits...</h2>
+
 <p>
-
-For someone who made
-ordinary days feel extraordinary.
-
+Enter the secret code to continue.
 </p>
 
-<button id="continueBtn">
+<input
+type="password"
+id="password"
+placeholder="Secret Code">
 
-Continue
-
+<button id="unlockBtn">
+Unlock ❤️
 </button>
 
+<p id="error"></p>
+
+</div>
+
+</div>
+
+<!-- WEBSITE (Hidden Initially) -->
+
+<div class="website">
+
+<section class="hero">
+
+<h1>Happy Girlfriend's Day ❤️</h1>
+
+<h2>Welcome to your surprise...</h2>
+
+<p>
+This is only the beginning of something made especially for you.
+</p>
+
 </section>
+
+</div>
 
 <script src="script.js"></script>
 
