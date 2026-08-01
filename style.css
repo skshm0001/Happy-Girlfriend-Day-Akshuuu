@@ -472,20 +472,23 @@ margin-bottom:30px;
 
 .envelope-card{
 position:relative;
+display:block;
 width:320px;
 height:220px;
+margin:40px auto;
 cursor:pointer;
 transition:.4s;
+overflow:visible;
 }
-
 .envelope-card:hover{
 transform:translateY(-8px);
 }
 
 .envelope-back{
 position:absolute;
+left:0;
 bottom:0;
-width:100%;
+width:320px;
 height:160px;
 background:#ff5e94;
 border-radius:0 0 18px 18px;
@@ -493,8 +496,9 @@ border-radius:0 0 18px 18px;
 
 .envelope-flap{
 position:absolute;
+left:0;
 top:0;
-width:100%;
+width:320px;
 height:120px;
 background:#ff7cad;
 clip-path:polygon(0 0,100% 0,50% 100%);
