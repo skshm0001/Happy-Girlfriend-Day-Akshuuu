@@ -628,6 +628,8 @@ transform:rotateX(180deg);
 
 position:relative;
 
+z-index:5;
+
 margin-top:-140px;
 
 background:#fffdf7;
