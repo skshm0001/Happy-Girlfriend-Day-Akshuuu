@@ -478,9 +478,13 @@ width:340px;
 
 height:220px;
 
+margin-bottom:-120px;
+
 cursor:pointer;
 
-transition:.5s;
+transition:.8s;
+
+z-index:20;
 
 }
 
